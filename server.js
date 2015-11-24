@@ -1,20 +1,20 @@
 // Set up ====================
 var express = require('express');
-var app      = express();
-var mongoose       = require('mongoose');
-var morgan         = require('morgan');
-var bodyParser     = require('body-parser');
-var methodOverride = require('method-override');
+var app      = express();                    //create the app w/ express
+var mongoose       = require('mongoose');    //mongoose for mongodb
+var morgan         = require('morgan');         // log requests to the console (express4)
+var bodyParser     = require('body-parser');    // pull information from HTML POST (express4)
+var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
 // Configuration =================
 
-mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu');
+mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu'); // connect to mongoDB database on modulus.io
 
-app.use(express.static(_dirname + '/public'));
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoe({'extened': 'true'}));
-app.use(bodyParser.json());
-app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
+app.use(express.static(__dirname + '/public'));                  // set the static files location /pulic/img will be /img for users
+app.use(morgan('dev'));                                         // log every request the console
+app.use(bodyParser.urlencoded({'extened': 'true'}));            // parse application/x-www-form-urlecoded
+app.use(bodyParser.json());                                     // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json'}));  // parse application/vnd.api+json as json
 app.use(methodOverride());
 
 // listen (start app with node server.js) ======
