@@ -5,7 +5,7 @@
 
 https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular
 
-Start from "Frontend Application with Angular"
+Start from ""
 
 ### Functionality from the tutorial
 - Configure find, create, and delete for Mongoose
